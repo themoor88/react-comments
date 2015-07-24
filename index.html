@@ -13,17 +13,39 @@
         render: function() {
           return (
             <div className="commentBox">
-              Hello, world! I am a CommentBox.
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
             </div>
           );
         }
       });
 
+      var CommentList = React.createClass({
+        render: function() {
+          return (
+            <div className="commentList">
+              Hello, world! I am a CommentList.
+            </div>
+          );
+        }
+      });
+
+      var CommentForm = React.createClass({
+        render: function() {
+          return (
+            <div className="commentForm">
+              Hello, world! I am a CommentForm.
+            </div>
+          );
+        }
+      });
       React.render(
         <CommentBox />,
         document.getElementById("content")
       );
     </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
