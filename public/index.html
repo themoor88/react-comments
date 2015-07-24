@@ -10,11 +10,15 @@
     <div id="content"></div>
     <script type="text/jsx">
       var CommentBox = React.createClass({
+        getInitialState: function() {
+          return {data: []};
+        },
+
         render: function() {
           return (
             <div className="commentBox">
               <h1>Comments</h1>
-              <CommentList data={this.props.data} />
+              <CommentList data={this.state.data} />
               <CommentForm />
             </div>
           );
@@ -63,13 +67,8 @@
         }
       });
 
-      var data = [
-        {author: "Pete Hunt", text: "This is one comment"},
-        {author: "Jordan Walke", text: "This is *another* comment"}
-      ];
-
       React.render(
-        <CommentBox data={data}/>,
+        <CommentBox url="public/comments.json" />,
         document.getElementById("content")
       );
     </script>
@@ -79,4 +78,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
   </body>
+
 </html>
