@@ -46,9 +46,9 @@
 
       var CommentList = React.createClass({
         render: function() {
-          var commentNodes = this.props.data.map(function(comment) {
+          var commentNodes = this.props.data.map(function(comment, index) {
             return (
-              <Comment author={comment.author}>
+              <Comment author={comment.author} key={index}>
                 {comment.text}
               </Comment>
             );
@@ -66,7 +66,11 @@
         render: function() {
           return (
             <div className="commentForm">
-              Hello, world! I am a CommentForm.
+              <form>
+                <input type="text" placeholder="Your name" />
+                <input type="text" placeholder="Say something..." />
+                <input type="submit" value="Post" />
+              </form>
             </div>
           );
         }
